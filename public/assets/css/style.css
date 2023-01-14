@@ -291,3 +291,75 @@ a {
     text-align: center;
     font-size: 1.5rem;
 }
+
+.delete {
+    color: red;
+    border-radius: 20px;
+    /* border: 1px solid red; */
+    padding: 4px;
+    margin-left: 5px;
+}
+
+.edit {
+    color: rgb(13, 0, 255);
+    border-radius: 20px;
+    /* border: 1px solid rgba(14, 193, 163, 0.63); */
+    padding: 4px;
+    margin-right: 10px;
+}
+
+/* for admin page design */
+.adminpageimage {
+    width: 25rem;
+    height: 20rem;
+    border-radius: 10px;
+}
+
+table {
+
+    border-spacing: 10px;
+}
+
+thead {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #00ff00;
+    text-align: center;
+    position: sticky;
+    top: 73px;
+    background-color: white;
+}
+
+td,
+th {
+    padding: 10px;
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+td {
+    text-align: center;
+}
+
+.save {
+    padding: 10px;
+    background-color: #ff385c;
+    color: #fff;
+    border-radius: 10px;
+    display: block;
+    margin: auto;
+    width: 95%;
+}
+
+.new {
+    margin-left: 20px;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ff385c;
+    text-align: center;
+    position: sticky;
+    top: 73px;
+    border: 1px solid greenyellow;
+    border-radius: 10px;
+    padding: 5px;
+}

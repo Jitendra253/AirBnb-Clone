@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../../../partials/headmeta.ejs')%>
+
+        <title>Admin Page</title>
+</head>
+
+<body>
+    <!-- Main header -->
+    <%- include('../../../partials/header.ejs')%>
+
+        <!-- Main body  section -->
+        <section class="main property_section m container property-area">
+            <a class="new" href="/admin/products/new"> Add New Product</a>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Image</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% products.forEach(function(product) { %>
+                        <tr>
+                            <td>
+                                <img src="<%= product.images.picture_url %>" alt="product image" class="adminpageimage">
+                            </td>
+                            <td>
+                                <%= product.name %>
+                            </td>
+                            <td>
+                                <%= product.price %>
+                            </td>
+                            <td>
+                                <a class="edit" href="/admin/products/<%= product._id %>/edit">Edit</a>
+                                <a class="delete" href="/admin/products/<%= product._id %>/delete">Delete</a>
+                            </td>
+                        </tr>
+                        <% }); %>
+                </tbody>
+            </table>
+            <a href="/admin/products/new">New Product</a>
+        </section>
+        <%- include('../../../partials/footer.ejs')%>
+
+            <!-- Main body end -->
+            <!-- Footer -->
+</body>
+
+</html>
