@@ -27,12 +27,19 @@
 </section>
 <div id="message-container" style="display: none;">
     <div id="message">
-        <a href="/login" id="show_login">Login</a>
-        <a href="/signup">Sign up</a>
-        <hr>
-        <a href="/hostRooms">Airbnb Your Home</a>
-        <a href="/help">Help</a>
-        <a href="/logout">Logout</a>
+        <% if (cookies.jwt) { %>
+            <a>Welcome, you are logged in</a>
+            <a href="/logout">Logout</a>
+
+            <% } else { %>
+                <a href="/login" id="show_login">Login</a>
+
+                <% } %>
+                    <a href="/signup">Sign up</a>
+                    <hr>
+                    <a href="/hostRooms">Airbnb Your Home</a>
+                    <a href="/help">Help</a>
+
     </div>
 </div>
 

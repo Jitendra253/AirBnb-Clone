@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../partials/headmeta.ejs')%>
+        <title>
+            Login Error
+        </title>
+
+        <link rel="stylesheet" href="../public/assets/css/bookingError.css">
+
+</head>
+
+<body>
+    <!-- Main header -->
+    <%- include('../partials/header.ejs')%>
+        <!-- show error message -->
+        <div class="booking_error">
+            <h3> Somethig went wrong , User may already registered</h3>
+            <h2>Please try again</h2>
+            <a href="/signup">Try Again</a>
+        </div>
+        <!-- Main body end -->
+        <!-- Footer -->
+        <%- include('../partials/footer.ejs')%>
+
+</body>
+
+</html>

@@ -14,10 +14,17 @@ route.use(express.urlencoded({
 }));
 route.use(cookieParser());
 
+//receive cookies data from locals
+route.use((req, res, next) => {
+    res.locals.cookies = req.cookies
+    next()
+})
+
+
 
 //find data from database for home page
 async function findData() {
-    let data = await Listings.find().sort({ $natural: -1 }).limit(20);
+    let data = await Listings.find().sort({ $natural: -1 }).limit(50);
     return data;
 }
 //find a single listing data for property card using id
@@ -26,6 +33,7 @@ async function findSingle(id) {
     return data;
 }
 //home route
+
 route.get('/', async (req, res) => {
     let data = await findData();
     res.render('index', {
@@ -46,40 +54,40 @@ route.get('/hostRooms', auth, (req, res) => {
 })
 //host post route to save data in database
 route.post('/hostRooms', async (req, res) => {
-    const data = new Listings({
-        _id: mongoose.Types.ObjectId(),
-        name: req.body.property_title,
-        price: req.body.price,
-        address: {
-            country: req.body.country,
-            market: req.body.market,
-            government_area: req.body.government_area,
-        },
-        images: {
 
-            picture_url: req.body.pictureurl
-        },
-        description: req.body.description,
-        access: req.body.acces,
-        property_type: req.body.property_type,
-        room_type: req.body.room_type,
-        bedrooms: req.body.bedrooms,
-        beds: req.body.beds,
-        bathrooms: req.body.bathrooms,
-        guests_included: req.body.guests_included,
-        host: {
-            host_name: req.body.host_name
-        }
-    })
-    data.save(function (error) {
-        if (error) {
-            console.log(error);
-        } else {
-            console.log("Document saved with _id: " + data._id);
-            res.render('hostSucces')
-        }
-        mongoose.connection.close();
-    });
+
+    try {
+        const data = new Listings({
+            _id: mongoose.Types.ObjectId(),
+            name: req.body.property_title,
+            price: req.body.price,
+            address: {
+                country: req.body.country,
+                market: req.body.market,
+                government_area: req.body.government_area,
+            },
+            images: {
+
+                picture_url: req.body.pictureurl
+            },
+            description: req.body.description,
+            access: req.body.acces,
+            property_type: req.body.property_type,
+            room_type: req.body.room_type,
+            bedrooms: req.body.bedrooms,
+            beds: req.body.beds,
+            bathrooms: req.body.bathrooms,
+            guests_included: req.body.guests_included,
+            host: {
+                host_name: req.body.host_name
+            }
+        })
+        const saveproperty = await data.save();
+        res.render('hostSucces')
+    }
+    catch (error) {
+        res.alert("An error occured: " + error.message);
+    }
 });
 
 //for search route
@@ -98,4 +106,6 @@ route.get('/search', async (req, res) => {
         searchfield: searchfield
     });
 })
+
+
 module.exports = route;

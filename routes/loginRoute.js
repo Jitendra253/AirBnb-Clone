@@ -52,7 +52,7 @@ route.post('/signup', async (req, res) => {
             res.send('password are not matching')
         }
     } catch (error) {
-        res.send(error);
+        res.render('signuperror');
     }
 })
 
@@ -83,10 +83,10 @@ route.post('/login', async (req, res) => {
             res.redirect('/')
         }
         else {
-            res.render('loginerror')
+            res.send('Password not matching')
         }
     } catch (error) {
-        res.render('loginerror')
+        res.render('signuperror')
     }
 });
 
@@ -95,7 +95,7 @@ route.get('/logout', auth, async (req, res) => {
         req.Userdata.tokens = [];
         res.clearCookie("jwt")
         await req.Userdata.save();
-        res.render('login')
+        res.redirect('/')
 
     } catch (error) {
         res.status(400).send("Something went wrong")
@@ -112,10 +112,8 @@ route.get('/booking', auth, async (req, res) => {
 })
 route.get('/hostSucces', auth, async (req, res) => {
     //getting user data after login
-    const Userdata = req.Userdata;
-    res.render('hostSucces', {
-        data: Userdata
-    })
+    res.render('hostSucces')
+
 
 })
 module.exports = route;
