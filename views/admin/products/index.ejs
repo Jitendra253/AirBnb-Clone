@@ -5,6 +5,8 @@
     <%- include('../../../partials/headmeta.ejs')%>
 
         <title>Admin Page</title>
+        <link rel="stylesheet" href="../../../public/assets/css/admin.css">
+
 </head>
 
 <body>
@@ -13,43 +15,48 @@
 
         <!-- Main body  section -->
         <section class="main property_section m container property-area">
-            <a class="new" href="/admin/products/new"> Add New Product</a>
-
             <table class="table">
                 <thead>
                     <tr>
+                        <th>Sl No</th>
                         <th>Image</th>
                         <th>Name</th>
                         <th>Price</th>
                         <th>Actions</th>
+                        <th class="new"><a href="/admin/products/new">Add New</a></th>
                     </tr>
                 </thead>
                 <tbody>
-                    <% products.forEach(function(product) { %>
-                        <tr>
-                            <td>
-                                <img src="<%= product.images.picture_url %>" alt="product image" class="adminpageimage">
-                            </td>
-                            <td>
-                                <%= product.name %>
-                            </td>
-                            <td>
-                                <%= product.price %>
-                            </td>
-                            <td>
-                                <a class="edit" href="/admin/products/<%= product._id %>/edit">Edit</a>
-                                <a class="delete" href="/admin/products/<%= product._id %>/delete">Delete</a>
-                            </td>
-                        </tr>
-                        <% }); %>
+                    <% let i=1; %>
+                        <% products.forEach(function(product) { %>
+                            <tr>
+                                <td>
+                                    <%= i %>
+                                </td>
+                                <td>
+                                    <img src="<%= product.images.picture_url %>" alt="product image"
+                                        class="adminpageimage">
+                                </td>
+                                <td>
+                                    <%= product.name %>
+                                </td>
+                                <td>
+                                    $ <%= product.price %>
+                                </td>
+                                <td>
+                                    <a class="edit" href="/admin/products/<%= product._id %>/edit"><i
+                                            class="fa-solid fa-pen-to-square"></i></a>
+                                    <a class="delete" href="/admin/products/<%= product._id %>/delete"><i
+                                            class="fa-sharp fa-solid fa-trash"></i></a>
+                                </td>
+                            </tr>
+                            <% i++; %>
+                                <% }); %>
                 </tbody>
             </table>
-            <a href="/admin/products/new">New Product</a>
         </section>
-        <%- include('../../../partials/footer.ejs')%>
-
-            <!-- Main body end -->
-            <!-- Footer -->
+        <!-- Main body end -->
+        <!-- Footer -->
 </body>
 
 </html>

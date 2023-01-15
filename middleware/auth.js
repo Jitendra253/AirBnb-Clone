@@ -15,7 +15,8 @@ const auth = async (req, res, next) => {
 
     } catch (error) {
         //ask for log in if user not logged in
-        res.status(401).render('bookingError');
+        req.flash('error', 'Please Login Before Proceed')
+        res.redirect('/login')
     }
 }
 

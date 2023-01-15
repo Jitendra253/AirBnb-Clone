@@ -26,6 +26,7 @@ route.post('/signup', async (req, res) => {
 
         if (password === confirmpassword) {
             const newUser = new User({
+                userType: req.body.UserType,
                 firstname: req.body.firstname,
                 lastname: req.body.lastname,
                 email: req.body.email,
@@ -119,7 +120,5 @@ route.get('/booking', auth, async (req, res) => {
 route.get('/hostSucces', auth, async (req, res) => {
     //getting user data after login
     res.render('hostSucces')
-
-
 })
 module.exports = route;
