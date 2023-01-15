@@ -86,13 +86,13 @@ route.post('/login', async (req, res) => {
         }
 
         else {
-            req.flash('error', 'Email or password is incorrect, please try again')
+            req.flash('error', 'Wrong Password, please try again')
             res.redirect('/login')
         }
 
 
     } catch (error) {
-        req.flash('error', 'An error occurred while logging in, please try again')
+        req.flash('error', 'User not registered, please try again')
         res.redirect('/login')
     }
 });
