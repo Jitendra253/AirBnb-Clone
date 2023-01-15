@@ -3,7 +3,7 @@
 .property-area {
     flex-wrap: wrap;
     justify-content: space-between;
-    gap: 20px;
+    gap: 2rem;
     margin-top: 20px;
 }
 
@@ -15,7 +15,7 @@
 }
 
 .main .search span {
-    margin-top: 2.5remrem;
+    margin-top: 2.5rem;
     color: rgb(47, 82, 255);
     font-size: 2rem;
     font-weight: bold;
