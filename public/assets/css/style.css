@@ -138,6 +138,7 @@ html {
     border: 1px solid var(--lightgray);
     padding: 0.5rem 0.5rem;
     border-radius: 50px;
+
 }
 
 #Header-user i {
@@ -284,4 +285,96 @@ a {
 
 .center {
     text-align: center;
+}
+
+.alert {
+    color: red;
+    text-align: center;
+    font-size: 1.7rem;
+}
+
+/* For screens narrower than 1024px */
+@media screen and (max-width: 900px) {
+
+    /* Styles go here */
+    .container {
+        max-width: 100vw;
+        padding-inline: 2rem;
+    }
+
+    .header {
+        padding-block: 1rem;
+    }
+
+    #mainsearch {
+        width: 18rem;
+    }
+
+    #message {
+        width: 18rem;
+        font-size: 1.5rem;
+    }
+
+    #message a {
+        padding: 0.5rem;
+        margin-block: 0.2rem;
+    }
+}
+
+
+@media screen and (max-width: 800px) {
+
+    /* Styles go here */
+    .container {
+        padding-inline: 1rem;
+    }
+
+    .header-right {
+        margin-right: 2rem;
+    }
+
+    #message {
+        width: 15rem;
+        margin-right: 10rem;
+        font-size: 1.5rem;
+    }
+
+    #airbnbYh,
+    #globe {
+        display: none;
+    }
+
+    .property-area {
+        gap: 0.5;
+    }
+
+    .property-card {
+        flex-direction: column;
+        gap: 5px;
+        width: 10%;
+        height: 20rem;
+    }
+
+    .property-card img {
+        width: 10rem;
+        height: 10rem;
+    }
+
+    .property-card .details {
+        margin-top: 10px;
+        text-align: left;
+        align-items: flex-start;
+        font-size: 1rem;
+    }
+
+    .booking {
+        align-self: flex-start;
+        margin-top: 5rem;
+        border: 1px solid var(--lightgray);
+        padding: 1rem;
+        box-shadow: -4px 4px 40px -10px rgba(0, 0, 0, 0.61);
+        border-radius: 10px;
+        position: sticky;
+        top: 7.5rem;
+    }
 }

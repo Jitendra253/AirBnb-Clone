@@ -26,6 +26,7 @@ route.post('/signup', async (req, res) => {
 
         if (password === confirmpassword) {
             const newUser = new User({
+                userType: req.body.UserType,
                 firstname: req.body.firstname,
                 lastname: req.body.lastname,
                 email: req.body.email,
@@ -52,7 +53,8 @@ route.post('/signup', async (req, res) => {
             res.send('password are not matching')
         }
     } catch (error) {
-        res.render('signuperror');
+        req.flash('error', 'User Already registered ! Try again')
+        res.redirect('/signup');
     }
 })
 
@@ -82,11 +84,16 @@ route.post('/login', async (req, res) => {
         if (useremail.password === password) {
             res.redirect('/')
         }
+
         else {
-            res.send('Password not matching')
+            req.flash('error', 'Email or password is incorrect, please try again')
+            res.redirect('/login')
         }
+
+
     } catch (error) {
-        res.render('signuperror')
+        req.flash('error', 'An error occurred while logging in, please try again')
+        res.redirect('/login')
     }
 });
 
@@ -113,7 +120,5 @@ route.get('/booking', auth, async (req, res) => {
 route.get('/hostSucces', auth, async (req, res) => {
     //getting user data after login
     res.render('hostSucces')
-
-
 })
 module.exports = route;

@@ -1,0 +1,87 @@
+/* for admin page design */
+
+.adminpageimage {
+    width: 15rem;
+    height: 10rem;
+    border-radius: 10px;
+}
+
+.delete {
+    color: red;
+    /* border-radius: 20px; */
+    /* border: 1px solid red; */
+    /* padding: 4px;
+    margin-left: 5px; */
+}
+
+.table {
+    border: 2px solid rgb(254, 254, 5);
+    width: 100%;
+}
+
+.edit {
+    color: rgb(13, 0, 255);
+    /* border-radius: 20px;
+    border: 1px solid rgba(14, 193, 163, 0.63); 
+    padding: 4px;
+    margin-right: 10px; */
+}
+
+
+thead {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #00ff00;
+
+    text-align: center;
+    position: sticky;
+    top: 75px;
+    background-color: white;
+}
+
+td,
+th {
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+th {
+    background-color: black;
+    padding-block: 0.5rem;
+}
+
+tr:nth-child(even) {
+    background-color: lightyellow;
+}
+
+tr:nth-child(odd) {
+    background-color: #f2f2b7d1;
+}
+
+td {
+    text-align: center;
+    border-bottom: 1px solid rgb(254, 254, 5);
+
+}
+
+a {
+    padding: 5px;
+}
+
+.save {
+    padding: 1rem;
+    background-color: #ff385c;
+    color: #fff;
+    border-radius: 1rem;
+    display: block;
+    margin: auto;
+    width: 95%;
+}
+
+.new {
+    font-size: 1.5rem;
+    font-weight: bold;
+    background-color: #00ff00;
+    border: 1px solid greenyellow;
+    padding: 5px;
+}

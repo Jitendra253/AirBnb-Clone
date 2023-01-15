@@ -18,6 +18,7 @@
             <div id="login_container">
                 <h1>Welcome to Airbnb</h1>
 
+
                 <form action="/login" method="POST" id="login-form">
                     <div>
                         <input type="text" id="user_Id" name="email" placeholder="Enter user Email" required><br>
@@ -25,9 +26,14 @@
                     <div>
                         <input type="password" id="user_password" name="password" placeholder="Enter password" required>
                     </div>
-                    <div>
-                        <input type="submit" value="Log in">
-                    </div>
+                    <% if (messages.error) { %>
+                        <div class="alert">
+                            <%= messages.error %>
+                        </div>
+                        <% } %>
+                            <div>
+                                <input type="submit" value="Log in">
+                            </div>
                 </form>
             </div>
         </section>

@@ -1,10 +1,13 @@
 <!-- Top header -->
 <section class="container header flex">
     <!-- TH left -->
-    <div class="header-left flex">
-        <i class="fa-brands fa-airbnb icons"></i>
-        <h2>airbnb</h2>
-    </div>
+    <a href='/'>
+        <div class="header-left flex">
+            <i class="fa-brands fa-airbnb icons"></i>
+            <h2>airbnb</h2>
+
+        </div>
+    </a>
 
     <!--TH middle -->
     <div class="header-middle">
@@ -28,7 +31,7 @@
 <div id="message-container" style="display: none;">
     <div id="message">
         <% if (cookies.jwt) { %>
-            <a>Welcome, you are logged in</a>
+            <a style="color: blueviolet;">Welcome, you are logged in</a>
             <a href="/logout">Logout</a>
 
             <% } else { %>
@@ -39,6 +42,7 @@
                     <hr>
                     <a href="/hostRooms">Airbnb Your Home</a>
                     <a href="/help">Help</a>
+                    <a style="color: chartreuse;" href="/admin/products">Admin Panel</a>
 
     </div>
 </div>
