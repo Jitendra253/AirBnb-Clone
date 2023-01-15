@@ -8,7 +8,6 @@ require('../db/connection');
 const User = require('../models/users');
 const Product = require('../models/listings');
 
-
 const route = express.Router();
 route.use(express.json());
 route.use(express.urlencoded({
@@ -70,7 +69,6 @@ route.post('/admin/products', (req, res) => {
             government_area: req.body.government_area,
         },
         images: {
-
             picture_url: req.body.pictureurl
         },
         description: req.body.description,
@@ -94,16 +92,5 @@ route.post('/admin/products', (req, res) => {
         }
     });
 });
-// route.post('/admin/products/:id/delete', deleteProductAction);
-
-
-// function deleteProductAction(req, res) {
-//     Product.findByIdAndRemove(req.params.id, function (err) {
-//         res.redirect('/admin/products');
-//     });
-// }
-
-
-
 
 module.exports = route;
